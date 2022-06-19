@@ -1,0 +1,35 @@
+header{
+    background-color: #21212c;
+}
+
+nav{
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1144px;
+    margin: auto;
+}
+
+.links{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.links a{
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+
+.links a:hover{
+    color: #316eb3;
+}
