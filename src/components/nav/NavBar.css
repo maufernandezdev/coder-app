@@ -1,9 +1,10 @@
 header{
-    background-color: #21212c;
+    border-bottom:1px solid #21212c;
+    height: 55px;
 }
 
 nav{
-    color: #FFF;
+    color: #333333;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +20,7 @@ nav{
 }
 
 .links a{
-    color: #FFF;
+    color: #333333;
     text-decoration: none;
     text-transform: uppercase;
     padding: 1rem;
@@ -31,5 +32,11 @@ nav{
 }
 
 .links a:hover{
-    color: #316eb3;
+    color: #ccc;
+    cursor:default; 
+}
+
+nav .img-logo{
+    width: 80px;
+    height: 43px;
 }
