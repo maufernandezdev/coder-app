@@ -1,0 +1,12 @@
+.item-count{
+    border-radius: 7px;
+    border: 1px solid #ccc;
+}
+
+.item-count button{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 1em;
+}
