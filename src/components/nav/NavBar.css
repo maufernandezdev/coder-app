@@ -22,7 +22,6 @@ nav{
 .links a{
     color: #333333;
     text-decoration: none;
-    text-transform: uppercase;
     padding: 1rem;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
