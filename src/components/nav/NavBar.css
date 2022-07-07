@@ -1,15 +1,39 @@
 header{
     border-bottom:1px solid #21212c;
-    height: 55px;
+    padding: 0.7em 0em;
 }
 
 nav{
     color: #333333;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     max-width: 1144px;
     margin: auto;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0em 0.95em;
+}
+.nav .search{
+    width: 300px;
+    height: auto;
+    padding: 0;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #333333;
+    outline: none;
+    font-size: 0.9em;
+    padding: 0.5em;
+}
+
+.nav .search-container{
+    display: flex;
+    align-items: center;
 }
 
 .links{
@@ -35,7 +59,7 @@ nav{
     cursor:default; 
 }
 
-nav .img-logo{
-    width: 80px;
-    height: 43px;
+.nav .img-logo{
+    width: 65px;
+    height: 33px;
 }
