@@ -12,10 +12,13 @@
 }
 .item-detail .item-description{
     width: 40%;
+    max-width: 300px;
     padding: 3em 1em;
 }
 .item-detail .item-description h2{
     width: 100%;
+    text-align: left;
+    font-size: 1.4em
 } 
 
 .item-detail .item-description button{
@@ -27,7 +30,13 @@
     color: #fff;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
     border-radius: 4px;
+    width: 100%;
 }
+
+.item-detail a{
+    color: #fff;
+    text-decoration: none;
+} 
 
 .item-detail .item-description button:hover{
     cursor: pointer;
