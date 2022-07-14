@@ -48,6 +48,7 @@ const ItemListContainer = ({greeting}) => {
   return (
     <div className='container'>
       <h1>{greeting}</h1>
+      <h2>Fake api collection</h2>
       { products.length !== 0 ? <ItemList products={filterProducts} /> : <Loader></Loader> }
     </div>
   )

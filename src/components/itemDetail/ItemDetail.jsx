@@ -1,20 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState , useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from '../../components/itemCount/ItemCount';
+import { Shop } from '../../context/cartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({ product }) => {
-    console.log(product);
+
     const navigate = useNavigate();
     const [stock, setStock] = useState(10);
+    const {addItem} = useContext(Shop);
 
     const handleConfirm = (quantity) =>
-    {
+    {   
         setStock(stock - quantity);
-        console.log('nuevo stock: ' , stock);
+        addItem(product, quantity);
+        toast.success('Producto agregado al carrito', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
     }
     const checkout = () =>
-    {
+    {   
+        
         navigate('/cart');
     }
 
@@ -29,6 +43,7 @@ const ItemDetail = ({ product }) => {
                 <ItemCount onConfirm={handleConfirm}  initialStock={stock}></ItemCount>
                 <button onClick={checkout}>Comprar ahora</button>
             </div>
+            <ToastContainer />
         </div>
     )
 }

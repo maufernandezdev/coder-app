@@ -5,11 +5,17 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    /* background-color:#E4E9F7; */
     background-color: #ebebeb;
+    background-color:#E4E9F7;
 }
 
 .container h1{
     width: 100%;
     text-align:center;
+}
+
+.container h2{
+    width: 100%;
+    margin-top: -0.7em;
+    color: #999;
 }
