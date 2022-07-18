@@ -32,9 +32,16 @@ const ShopProvider = ({ children }) => {
         setCart([]);
     }
 
+    const getElementsCount = () =>
+    {
+        const count = cart.reduce(
+            (acc, item) => acc + item.quantity , 0
+        );
+        return count;
+    }
 
     return (
-        <Shop.Provider value={{addItem, removeItem, clearCart, cart}}> {children} </Shop.Provider>
+        <Shop.Provider value={{addItem, removeItem, clearCart, getElementsCount , cart}}> {children} </Shop.Provider>
     )
 }
 

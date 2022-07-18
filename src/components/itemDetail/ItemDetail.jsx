@@ -10,7 +10,7 @@ const ItemDetail = ({ product }) => {
 
     const navigate = useNavigate();
     const [stock, setStock] = useState(10);
-    const {addItem} = useContext(Shop);
+    const {addItem, getElementsCount} = useContext(Shop);
 
     const handleConfirm = (quantity) =>
     {   
@@ -26,9 +26,9 @@ const ItemDetail = ({ product }) => {
             progress: undefined,
             });
     }
+
     const checkout = () =>
     {   
-        
         navigate('/cart');
     }
 
@@ -41,7 +41,7 @@ const ItemDetail = ({ product }) => {
                 <p>{product.description}</p>
                 <p>Stock disponible: {stock} </p>
                 <ItemCount onConfirm={handleConfirm}  initialStock={stock}></ItemCount>
-                <button onClick={checkout}>Comprar ahora</button>
+                {getElementsCount() > 0 ? <button onClick={checkout}>Comprar ahora</button> : null}
             </div>
             <ToastContainer />
         </div>

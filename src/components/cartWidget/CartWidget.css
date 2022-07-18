@@ -3,3 +3,14 @@
     color: #333333;
     margin-left: 0.5em;
 }
+.number{
+    background-color: #333333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 0.5em 0.7em;
+    position: absolute;
+    font-size: 0.6em;
+    margin-left: 2.2em;
+    margin-top: -1.2em;
+}
