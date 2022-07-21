@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../../components/itemList/ItemList';
 import Loader from '../../components/spinner/Spinner';
+import { collection, query, getDocs } from 'firebase/firestore';
+import {db} from '../../firebase/config'
 
 import { useParams } from 'react-router-dom';
 
@@ -17,9 +19,13 @@ const ItemListContainer = ({greeting}) => {
       const getProducts = async () => {
         try
         {
-          const response = await fetch('https://fakestoreapi.com/products');
-          const data = await response.json()
-          setproducts(data);
+          const q = query(collection(db, "products"));
+          const querySnapshot = await getDocs(q);
+          const products = []; 
+          querySnapshot.forEach((doc) => {
+            products.push({id: doc.id , ...doc.data()})
+          });
+          setproducts(products);
         }
         catch (error)
         {
@@ -48,7 +54,7 @@ const ItemListContainer = ({greeting}) => {
   return (
     <div className='container'>
       <h1>{greeting}</h1>
-      <h2>Fake api collection</h2>
+      <h2>Firebase collection</h2>
       { products.length !== 0 ? <ItemList products={filterProducts} /> : <Loader></Loader> }
     </div>
   )

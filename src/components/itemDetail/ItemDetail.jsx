@@ -9,9 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const ItemDetail = ({ product }) => {
 
     const navigate = useNavigate();
-    const [stock, setStock] = useState(10);
+    const [stock, setStock] = useState(product.stock);
     const {addItem, getElementsCount} = useContext(Shop);
-
+    
     const handleConfirm = (quantity) =>
     {   
         setStock(stock - quantity);
@@ -34,9 +34,9 @@ const ItemDetail = ({ product }) => {
 
     return (
         <div className='item-detail'>
-            <img src={product.image} alt={product.title}/>
+            <img src={product.image} alt={product.name}/>
             <div className='item-description'>
-                <h2>{product.title}</h2>
+                <h2>{product.name}</h2>
                 <h3>${product.price}</h3>
                 <p>{product.description}</p>
                 <p>Stock disponible: {stock} </p>

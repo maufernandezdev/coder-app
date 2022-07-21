@@ -19,14 +19,10 @@ const NavBar = () =>{
 
                 <div className="links">
                     <Link to='/'>Inicio</Link>
-                    <Link to='/category/electronics'>Electronics</Link>
+                    <Link to='/category/mobile'>Mobile</Link>
                     <Link to='/category/jewelery'>Jewelery</Link>
                     <Link to="/category/women's clothing">Women's clothing</Link>
                     <Link to="/category/men's clothing">Men's clothing</Link>
-                    {/* <Link to='/'>Hombres</Link>
-                    <Link to='/'>Mujeres</Link>
-                    <Link to='/'>Niños</Link>
-                    <Link to='/'>Surf</Link> */}
                 </div>
                 
             </nav>
