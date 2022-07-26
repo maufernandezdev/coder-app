@@ -1,7 +1,6 @@
 import React from "react";
 import './NavBar.css';
 import CartWidget from "../cartWidget/CartWidget";
-import Logo from '../../assets/quiksilver-logo-2.png'
 import { Link } from 'react-router-dom';
 
 const NavBar = () =>{
@@ -10,7 +9,7 @@ const NavBar = () =>{
             <nav>
                 
                 <div className="nav">
-                    <Link to='/'><img src={Logo} alt="logo" className="img-logo" /></Link>
+                    <Link to='/'>MF Store</Link>
                     <div className="search-container">
                         <input type="text" placeholder="Buscar productos..." className="search"/>
                         <Link to='/cart'><CartWidget></CartWidget></Link>

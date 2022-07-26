@@ -19,6 +19,12 @@ nav{
     justify-content: space-between;
     padding: 0em 0.95em;
 }
+
+.nav a{
+    text-decoration: none;
+    color: #333333;
+}
+
 .nav .search{
     width: 300px;
     height: auto;
