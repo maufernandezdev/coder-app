@@ -9,7 +9,7 @@ const NavBar = () =>{
             <nav>
                 
                 <div className="nav">
-                    <Link to='/'>MF Store</Link>
+                    <Link to='/'>Coder Store</Link>
                     <div className="search-container">
                         <input type="text" placeholder="Buscar productos..." className="search"/>
                         <Link to='/cart'><CartWidget></CartWidget></Link>
@@ -19,9 +19,7 @@ const NavBar = () =>{
                 <div className="links">
                     <Link to='/'>Inicio</Link>
                     <Link to='/category/mobile'>Mobile</Link>
-                    <Link to='/category/jewelery'>Jewelery</Link>
-                    <Link to="/category/women's clothing">Women's clothing</Link>
-                    <Link to="/category/men's clothing">Men's clothing</Link>
+                    <Link to='/category/watch'>Watch</Link>
                 </div>
                 
             </nav>

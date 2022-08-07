@@ -5,7 +5,6 @@ export const Shop = createContext();
 const ShopProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
-    //Agregar un item al carrito, acorde a la cantidad
     const addItem = (producto, cantidad) =>
     {   
         const productoRepetido = cart.find(elemento => elemento.id === producto.id);
@@ -34,10 +33,7 @@ const ShopProvider = ({ children }) => {
 
     const getElementsCount = () =>
     {
-        const count = cart.reduce(
-            (acc, item) => acc + item.quantity , 0
-        );
-        return count;
+        return cart.reduce((acc, item) => acc + item.quantity , 0);
     }
 
     return (
@@ -45,4 +41,4 @@ const ShopProvider = ({ children }) => {
     )
 }
 
-export default ShopProvider
+export default ShopProvider;

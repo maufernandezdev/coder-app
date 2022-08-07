@@ -4,12 +4,14 @@ import { db } from "../firebase/config";
 const sendOrder = (cart, order) =>
 {
     console.log("init send order");
-    // removing stock property before commit to firebase
+    // removing stock and image url properties before commit to firebase
     const newOrder = order.items.map((customerOrder) => {
-        const {stock , ...updateOrder} = customerOrder;
+        const {stock , image , ...updateOrder} = customerOrder;
         return updateOrder;
     });
     console.log('new order' , newOrder);
+    order.items.splice(0, order.items.length);
+    order.items.push(...newOrder);
     
     const batch = writeBatch(db);
     const outOfStock = [];
@@ -42,7 +44,7 @@ const sendOrder = (cart, order) =>
         {   
             try
             {
-                const reference = await addDoc(collection(db, 'orders'), newOrder);
+                const reference = await addDoc(collection(db, 'orders'), order);
                 await batch.commit();
                 console.log('Se genero la order con id: ' , reference.id)
             }

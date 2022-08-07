@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../../components/itemList/ItemList';
 import Loader from '../../components/spinner/Spinner';
-import { collection, query, getDocs } from 'firebase/firestore';
-import {db} from '../../firebase/config'
+// import { collection, query, getDocs } from 'firebase/firestore';
+// import {db} from '../../firebase/config'
 
 import { useParams } from 'react-router-dom';
+import getCollection from '../../utils/getCollection';
 
 const ItemListContainer = ({greeting}) => {
 
@@ -16,15 +17,11 @@ const ItemListContainer = ({greeting}) => {
   useEffect(() => {
 
       // async mock with 2000 ms timeout
-      const getProducts = async () => {
+      const getProducts = async () => 
+      {
         try
         {
-          const q = query(collection(db, "products"));
-          const querySnapshot = await getDocs(q);
-          const products = []; 
-          querySnapshot.forEach((doc) => {
-            products.push({id: doc.id , ...doc.data()})
-          });
+          const products = await getCollection('products');
           setproducts(products);
         }
         catch (error)

@@ -1,15 +1,12 @@
 import React, { useEffect, useState , useContext } from 'react';
 import Loader from '../../components/spinner/Spinner';
 import { Shop } from '../../context/cartContext';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import {MdOutlineKeyboardArrowRight} from 'react-icons/md';
 import './CartContainer.css';
 import 'react-toastify/dist/ReactToastify.css';
-import createOrder from '../../utils/createOrder';
-import sendOrder from '../../utils/sendOrder';
-
 
 const CartContainer = () => {
 
@@ -18,9 +15,8 @@ const CartContainer = () => {
   const {clearCart} = useContext(Shop);
   const {getElementsCount} = useContext(Shop);
   const [show, setShow] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // delay to show loader component
   useEffect(() => {
       let timer = setTimeout(() => setShow(true), 2000);
 
@@ -51,12 +47,7 @@ const CartContainer = () => {
   
   const getTotal = () =>
   { 
-    const initialValue = 0;
-    const total = cart.reduce(
-      (acc, item) => acc + item.price * item.quantity , initialValue
-    );
-
-    return total;
+    return cart.reduce((acc, item) => acc + item.price * item.quantity , 0);
   }
 
   const handleRemove = (id, e) =>
@@ -80,12 +71,7 @@ const CartContainer = () => {
 
   const purchase = () =>
   { 
-    notification('Muchas gracias por su compra!');
-    let total = getTotal()
-    const order = createOrder("Mau", "testing", cart, total);
-    sendOrder(cart, order);
-    clearCart();
-    notification('Tu orden se genero con éxito');
+    navigate('/checkout');
   }
 
   return show ? 
