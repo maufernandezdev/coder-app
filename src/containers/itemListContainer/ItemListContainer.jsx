@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../../components/itemList/ItemList';
 import Loader from '../../components/spinner/Spinner';
-// import { collection, query, getDocs } from 'firebase/firestore';
-// import {db} from '../../firebase/config'
-
 import { useParams } from 'react-router-dom';
 import getCollection from '../../utils/getCollection';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ItemListContainer = ({greeting}) => {
 
@@ -16,7 +14,6 @@ const ItemListContainer = ({greeting}) => {
 
   useEffect(() => {
 
-      // async mock with 2000 ms timeout
       const getProducts = async () => 
       {
         try
@@ -26,14 +23,21 @@ const ItemListContainer = ({greeting}) => {
         }
         catch (error)
         {
-          console.log("getProducts error: " + error);
+          toast.warn('Lo sentimos ocurrió un error al cargar nuestros productos', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       }
       getProducts();
 
   },[]);
 
-  /* [2022-07-04] use effect to set a category */
   useEffect(() => {
 
     if (params?.categoryId)
@@ -53,6 +57,7 @@ const ItemListContainer = ({greeting}) => {
       <h1>{greeting}</h1>
       <h2>Firebase collection</h2>
       { products.length !== 0 ? <ItemList products={filterProducts} /> : <Loader></Loader> }
+      <ToastContainer />
     </div>
   )
 }

@@ -13,7 +13,6 @@ const ItemList = ({products}) => {
     const watchCategory = products.filter(product => product.category === 'watch');
     setMobiles(mobileCategory);
     setWatchs(watchCategory);
-    console.log('use effect');
 
   },[products]);
 

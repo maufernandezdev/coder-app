@@ -8,18 +8,16 @@ import {db} from '../../firebase/config'
 const ItemDetailContainer = () => {
 
     const [productDetail, setProductDetail] = useState({})
-
     const params = useParams();
 
     useEffect(()=> {
         const getProductos = async () => {
-            try {
+            try 
+            {
                 const docRef = doc(db, "products", params.productId);
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists())
                 {
-                    console.log(docSnap);
-                    console.log("Document data:", docSnap.data());
                     const productDetail = {id: docSnap.id , ...docSnap.data()}
                     setProductDetail(productDetail);
                 }
@@ -27,8 +25,10 @@ const ItemDetailContainer = () => {
                 {
                     console.log("No such document!");
                 }
-            } catch (error) {
-                console.log(error)
+            } 
+            catch (error)
+            {
+                console.log(error);
             }
         }
         getProductos();

@@ -3,8 +3,7 @@ import Loader from '../../components/spinner/Spinner';
 import { Shop } from '../../context/cartContext';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
-import {MdOutlineKeyboardArrowRight} from 'react-icons/md';
+import EmptyCart from '../../components/emptyCart/EmptyCart';
 import './CartContainer.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -77,7 +76,7 @@ const CartContainer = () => {
   return show ? 
   (
     <div className='cart-container'>
-      <h2>Mi carrito de compras</h2>
+      <h2>Resumen de compras</h2>
       { 
         getElementsCount() > 0 ?
         <>
@@ -107,8 +106,7 @@ const CartContainer = () => {
         </>
         :
         <>
-          <h3>Sin productos en el carrito</h3>
-          <p>Para agregar productos dirigase a la sección de <Link to="/" className='link'>Inicio <MdOutlineKeyboardArrowRight></MdOutlineKeyboardArrowRight> </Link></p>
+          <EmptyCart></EmptyCart>
         </>
       }
       

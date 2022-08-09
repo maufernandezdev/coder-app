@@ -11,7 +11,6 @@ const NavBar = () =>{
                 <div className="nav">
                     <Link to='/'>Coder Store</Link>
                     <div className="search-container">
-                        <input type="text" placeholder="Buscar productos..." className="search"/>
                         <Link to='/cart'><CartWidget></CartWidget></Link>
                     </div>
                 </div>

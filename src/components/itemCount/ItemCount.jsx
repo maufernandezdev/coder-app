@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './ItemCount.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ItemCount = ( { onConfirm, initialStock } ) => {
 
@@ -20,16 +21,22 @@ const ItemCount = ( { onConfirm, initialStock } ) => {
     setExceeds(true);
   }
 
-  // simulate add to cart
   const addToCart = () =>
   {
     if(!exceeds)
     {
       onConfirm(count);
-      console.log('agregando al carrito: ' , count);
       return;
     }
-    console.log('la cantidad supera el stock');
+    toast.warn('La cantidad supera el stock', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   // if an amount was selected from the select element, it is set in the count state
@@ -57,7 +64,6 @@ const ItemCount = ( { onConfirm, initialStock } ) => {
     }
   }
 
-  // select options
   const options = 
   [
     { value: '1', label: '1 unidad' },
@@ -73,7 +79,7 @@ const ItemCount = ( { onConfirm, initialStock } ) => {
 
   return (
     <div className='item-count'>
-      
+        <ToastContainer />
         <select name="selected-value" onChange={handleChange} value={selectedOption}>
         { 
           options.map(option => (<option key={option.value} value={option.value}> {option.label} </option>))
@@ -81,9 +87,8 @@ const ItemCount = ( { onConfirm, initialStock } ) => {
         </select>
         { quantity? <input type="text" placeholder='Cantidad' maxLength={2} onChange={textValidation} /> : null }
         <button onClick={addToCart}>Agregar al carrito</button>
-
     </div>
   )
 }
 
-export default ItemCount
+export default ItemCount;

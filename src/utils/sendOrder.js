@@ -1,21 +1,19 @@
 import { addDoc, collection, doc, getDoc, writeBatch } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-const sendOrder = (cart, order) =>
+const SendOrder = (cart, order) =>
 {
-    console.log("init send order");
-    // removing stock and image url properties before commit to firebase
+    // [Start] removing stock and image url properties before commit to firebase
     const newOrder = order.items.map((customerOrder) => {
         const {stock , image , ...updateOrder} = customerOrder;
         return updateOrder;
     });
-    console.log('new order' , newOrder);
     order.items.splice(0, order.items.length);
     order.items.push(...newOrder);
+    // [End] removing stock and image url properties before commit to firebase
     
     const batch = writeBatch(db);
     const outOfStock = [];
-    
     cart.forEach((productInCart) => {
         getDoc(doc(db, 'products', productInCart.id))
         .then(async (documentSnapshot) => {
@@ -31,9 +29,6 @@ const sendOrder = (cart, order) =>
             {
                 outOfStock.push(prod)
             }
-            console.log("productos fuera de stock:");
-            console.log(outOfStock);
-
         });
     });
 
@@ -46,11 +41,11 @@ const sendOrder = (cart, order) =>
             {
                 const reference = await addDoc(collection(db, 'orders'), order);
                 await batch.commit();
-                console.log('Se genero la order con id: ' , reference.id)
+                localStorage.setItem('LAST_ORDER_ID', reference.id);
             }
             catch(error)
             {
-                console.log('create order in firebase error: ', error.message);
+                console.log('create order in firebase error: ', error.message); // show this error to the user
             }
         }
         else
@@ -61,9 +56,9 @@ const sendOrder = (cart, order) =>
             {
                 msj += product.title + ' ';
             }
-            console.log('prods fuera de stock: ', msj)
+            console.log('prods fuera de stock: ', msj); // show this error to the user
         }
     })();
 }
 
-export default sendOrder;
+export default SendOrder;
