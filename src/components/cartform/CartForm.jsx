@@ -118,7 +118,7 @@ const CartForm = () => {
           setTimeout(() => {
             clearCart();
             navigate('/success');
-          }, 2500);
+          }, 3000);
       }
   }
 

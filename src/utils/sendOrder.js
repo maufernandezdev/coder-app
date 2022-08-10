@@ -41,6 +41,7 @@ const SendOrder = (cart, order) =>
             {
                 const reference = await addDoc(collection(db, 'orders'), order);
                 await batch.commit();
+                console.log('reference id: ' , reference.id)
                 localStorage.setItem('LAST_ORDER_ID', reference.id);
             }
             catch(error)
