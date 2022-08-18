@@ -84,8 +84,8 @@ const CartContainer = () => {
           {cart.map(product => {
             return <li className='product-li' key={product.id}>
                     <div className='header-li'>
-                    <img src={product.image} alt={product.title}/>
-                    <h3>{product.title}</h3>
+                    <img src={product.image} alt={product.name}/>
+                    <h3>{product.name}</h3>
                     <h4>cantidad {product.quantity}</h4>
                     <h5>$ {getPrice(product.quantity, product.price)} </h5>
                     </div>
@@ -96,7 +96,7 @@ const CartContainer = () => {
             })}
             <li className='product-li'>
               <h5 className='total'>Total : ${getTotal()}</h5>
-              <div className='buttons-li'>
+              <div className='buttons-li bottom-button'>
                 <button onClick={(e) => clear(e)}>Vaciar carrito</button>
                 <button onClick={purchase}>Finalizar compra</button>
               </div>

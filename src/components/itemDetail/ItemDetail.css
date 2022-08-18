@@ -1,25 +1,33 @@
 .item-detail{
-    padding: 0em 3em;
+    padding: 1em 3em;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .item-detail img{
-    width: 35%;
-    height: 400px;
-    padding: 2em;
-    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+    margin-top: 2rem;
 }
 .item-detail .item-description{
-    width: 40%;
+    width: 100%;
     max-width: 300px;
-    padding: 3em 1em;
+    padding: 1em;
 }
 .item-detail .item-description h2{
     width: 100%;
     text-align: left;
-    font-size: 1.4em
-} 
+    font-size: 1.2em
+}
+
+.item-detail .item-description h3{
+    font-size: 1em;
+}
+
+.item-detail .item-description p{
+    font-size: 0.875em;
+}
 
 .item-detail .item-description button{
     outline: none;
@@ -40,4 +48,36 @@
 .item-detail .item-description button:hover{
     cursor: pointer;
     background-color: #4a4a4a;
+}
+
+@media (min-width: 1024px){
+    .item-detail{
+        flex-wrap: nowrap;
+        margin-top: 2rem;
+    }
+    
+    .item-detail img{
+        width: 375px;
+        height: 400px;
+        /* padding: 2em; */
+        /* margin-top: 2rem; */
+        margin: 0;
+    }
+
+    .item-detail .watch{
+        width: 275px;
+        height: 100%;
+        height: 300px;
+        padding: 1em;
+        margin-right: 3em;
+        margin-top: 3em;
+    }
+
+    .item-detail .item-description{
+        width: 100%;
+        max-width: 300px;
+        padding: 1em;
+        height: 300px;
+        /* background-color: #ccc; */
+    }
 }

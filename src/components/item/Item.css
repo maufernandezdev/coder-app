@@ -18,14 +18,26 @@
 
 .card h3{
     color: #333;
+    font-size: 1em;
 }
 
 .card h4{
     color: #888;
-    font-size: 14px;
+    font-size: 0.875em;
 }
 
 .card:hover{
     transform: translateY(-10px);
     box-shadow: 1.25px 1.25px 10px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 1024px)
+{
+    .card h3{
+        font-size: 1.2em;
+    }
+    
+    .card h4{
+        font-size: 1em;
+    }
 }

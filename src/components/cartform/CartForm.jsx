@@ -164,7 +164,7 @@ const CartForm = () => {
                 <input type="text" className={addressValid} placeholder='Dirección' name='address' onBlur={handleBlur} onChange={e => handleInputChange(e)} value={formValues.address || ''} required/>
                 
                 {errors.address && <p className='error'>{errors.address}</p>}
-                <label>Medio de pago</label>
+                <h3>Medio de pago</h3>
                 <select name="paymentMethod" onChange={e => handleChange(e)} value={selectedOption}>
                 { 
                     options.map(option => (<option key={option.value} value={option.value}> {option.label} </option>))

@@ -11,6 +11,7 @@ const ItemDetail = ({ product }) => {
     const navigate = useNavigate();
     const [stock, setStock] = useState(product.stock);
     const {addItem, getElementsCount} = useContext(Shop);
+    const imgClass = product.category;
     
     const handleConfirm = (quantity) =>
     {   
@@ -34,7 +35,7 @@ const ItemDetail = ({ product }) => {
 
     return (
         <div className='item-detail'>
-            <img src={product.image} alt={product.name}/>
+            <img src={product.image} alt={product.name} className={imgClass} />
             <div className='item-description'>
                 <h2>{product.name}</h2>
                 <h3>${product.price}</h3>

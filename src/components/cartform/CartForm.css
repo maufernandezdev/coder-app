@@ -7,10 +7,15 @@
     padding: 1em 0em;
 }
 
+.setStep h2{
+    font-size: 1.5em;
+}
+
 .form h3{
     width: 100%;
     text-align:center;
     text-align: left;
+    font-size: 0.875em;
 }
 
 textarea {
@@ -41,6 +46,7 @@ textarea {
     margin: 0.5em 0em;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 0.875em;
 }
 
 .form .form-container .button-container{
@@ -71,6 +77,7 @@ textarea {
     color: #fff;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
     width: 47.5%;
+    border-radius: 0px;
 }
 
 .form .form-container .button-container .secondary{
@@ -113,7 +120,6 @@ textarea {
 
 .form .form-container .error{
     color: #ff0000;
-    /* background-color: #ccc; */
     width: 100%;
     margin: 0;
     font-size: 0.775em;
@@ -121,5 +127,22 @@ textarea {
 
 .form .form-container .valid{
     border-color: #00a650;
+}
+
+@media (min-width: 1024px)
+{
+    .setStep h2{
+        font-size: 2em;
+    }
+
+    .form h3{
+        font-size: 1em;
+    }
+
+    .form .form-container input,
+    .form .form-container textarea{
+
+    font-size: 1em;
+}
 }
 

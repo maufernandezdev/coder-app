@@ -1,10 +1,8 @@
-
-
 .cart-container{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 1340px;
+    max-width: 375px;
     justify-content: center;
     margin: 0px auto;
 }
@@ -22,14 +20,13 @@
 }
 
 .product-list{
-    
     width: 100%;
     display: flex;
     margin: 0;
     padding: 0;
     justify-content: center;
     flex-wrap: wrap;
-    width: 1200px;
+    width: 375px;
     margin: 0px auto;
     height: auto;
 }
@@ -42,25 +39,30 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1em;
-    padding: 0em 1em;
+    padding: 0em;
     border-bottom: 1px solid #ccc;
 }
 
 .product-list .product-li h3{
     width: 100%;
-    padding: 0em 2em;
+    padding: 0em;
+    font-size: 0.875em;
+    text-align:center;
 }
 
 .product-list .product-li h4{
-    width: 120px;
-    padding: 0em 1em;
+    width: 50%;
+    padding: 0em;
+    font-size: 0.875em;
     font-weight: normal;
+    text-align:center;
 }
 
 .product-list .product-li h5{
-    width: 125px;
-    font-size: 1.2em;
+    width: 50%;;
+    font-size: 0.875em;
     text-align: right;
+    text-align:center;
 }
 
 .product-list .product-li .header-li
@@ -86,7 +88,22 @@
     color: #fff;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
     width: auto;
-    margin-left:0.5em;
+    /* margin-left:0.5em; */
+}
+
+.bottom-button{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.bottom-button button{
+    width: 100%;
+}
+
+.bottom-button button:nth-child(1){
+    width: 100%;
+    margin-right: 10px;
 }
 
 .product-list .product-li .total{
@@ -98,6 +115,7 @@
 
 .product-list .product-li img{
     width: 50px;
+    margin-right: 10px;
 }
 
 /* cart without products */
@@ -120,4 +138,45 @@
     position: absolute;
     margin-top: 0.33em;
     font-size: 0.9em;
+}
+
+@media (min-width: 1024px){
+    .cart-container{
+        max-width: 1024px;
+    }
+    .cart-container h2{
+        font-size: 2em;
+    }
+    .product-list{
+        width: 1000px;
+    }
+
+    .bottom-button button:nth-child(1){
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .bottom-button button{
+        width: auto;
+    }
+
+    .product-list .product-li h3{
+        font-size: 1em;
+        text-align:right;
+    }
+    
+    .product-list .product-li h4{
+        font-size: 1em;
+        text-align:right;
+    }
+    
+    .product-list .product-li h5{
+        font-size: 1em;
+        text-align: right;
+    }
+
+    .product-list .product-li img{
+        width: 75px;
+        margin-right: 10px;
+    }
 }
