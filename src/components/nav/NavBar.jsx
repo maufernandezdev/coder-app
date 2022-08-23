@@ -1,27 +1,28 @@
-import React from "react";
+import React , { useRef } from "react";
 import './NavBar.css';
 import CartWidget from "../cartWidget/CartWidget";
 import { Link } from 'react-router-dom';
+import {FaBars , FaTimes} from 'react-icons/fa'
 
 const NavBar = () =>{
+
+    const navRef = useRef();
+    const showNavBar = () =>
+    {
+        navRef.current.classList.toggle('responsive_nav');
+    }
+
     return(
         <header>
-            <nav>
-                
-                <div className="nav">
-                    <Link to='/'>Coder Store</Link>
-                    <div className="search-container">
-                        <Link to='/cart'><CartWidget></CartWidget></Link>
-                    </div>
-                </div>
-
-                <div className="links">
-                    <Link to='/'>Inicio</Link>
-                    <Link to='/category/mobile'>Mobile</Link>
-                    <Link to='/category/watch'>Watch</Link>
-                </div>
-                
+            <Link to='/'>Logo</Link>
+            <nav ref={navRef}>
+                <Link onClick={showNavBar} to='/'>Inicio</Link>
+                <Link onClick={showNavBar} to='/category/mobile'>Mobile</Link>
+                <Link onClick={showNavBar} to='/category/watch'>Watch</Link>
+                <Link onClick={showNavBar} to='/cart'><CartWidget></CartWidget></Link>
+                <button className="nav-btn nav-close-btn" onClick={showNavBar}> <FaTimes></FaTimes> </button>
             </nav>
+            <button className="nav-btn" onClick={showNavBar}> <FaBars></FaBars> </button>
         </header>
     )
 }
